@@ -35,6 +35,9 @@ Get IP of a container
 
 Connect to postgresql db inside a docker container: `docker exec -it docker_postgres_1 psql -U user dbname`
 
+# CRON
+add a cron job on ubuntu: `crontab -e`
+
 
 # Mount NFS disk
 Temporary: `mount IP:/path_on_remote_machine path_on_local_machine`
@@ -59,3 +62,15 @@ Generate hashed password (for simple auth): `echo $(htpasswd -nbB <USER> "<PASS>
 NOTE: need the second part only if putting password directly in docker-compose as one needs to escape $ signs
 
 Solve problem of migration in Django: `python manage.py migrate --run-syncdb`
+
+creater admin user in django: `python manage.py createsuperuser`
+
+Find logs/Events on windows: `Event Viewer`
+
+# Git
+
+`git fetch origin master`
+`git merge`
+`git add --all`
+`git commit -m "some text"`
+`git push origin master`
