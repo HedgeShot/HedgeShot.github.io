@@ -35,6 +35,22 @@ Get IP of a container
 
 Connect to postgresql db inside a docker container: `docker exec -it docker_postgres_1 psql -U user dbname`
 
+## backup & restore docker volume
+
+make backup
+docker run --rm --volumes-from container_name -v $(pwd):/backup ubuntu tar cvf /backup/backup.tar /path/to/files/in/container
+
+
+download to local machine
+scp user@ip:~/backup.tar /some/folder/local/computer/backup.tar
+
+upload
+scp /some/folder/local/computer/backup.tar user@ip:~/backup.tar
+
+restore volume
+1) run a container with volume
+2) docker run --rm --volumes-from container -v $(pwd):/backup ubuntu bash -c "cd /path/to/files/in/container && tar xvf /backup/backup.tar --strip 1"
+
 # CRON
 add a cron job on ubuntu: `crontab -e`
 
